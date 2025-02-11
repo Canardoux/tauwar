@@ -1,6 +1,6 @@
 name: tau_war
 description: "An Etau implemention for Android and iOS, using the tau_webkit plugin"
-version: 0.15.2-alpha-6+3
+version: 0.15.2-alpha-6+4
 homepage:
 
 environment:

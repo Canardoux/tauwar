@@ -21,8 +21,8 @@ class _MyAppState extends State<MyApp> {
   @override
   void initState() {
     super.initState();
-    sumResult = tau_war.sum(1, 2);
-    sumAsyncResult = tau_war.sumAsync(3, 4);
+    //sumResult = tau_war.sum(1, 2);
+    //sumAsyncResult = tau_war.sumAsync(3, 4);
   }
 
   @override
