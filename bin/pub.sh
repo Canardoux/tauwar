@@ -10,6 +10,7 @@ VERSION=$1
 VERSION_CODE=${VERSION#./}
 VERSION_CODE=${VERSION_CODE#+/}
 
+echo '************************* Pub tau_war ************************'
 bin/setver.sh $VERSION
 bin/reldev.sh REL
 
@@ -43,14 +44,6 @@ cd ..
 
 dart doc .
 
-rm -rf _*.tgz 2>/dev/null
-
-
-flutter pub publish
-if [ $? -ne 0 ]; then
-    echo "Error: flutter pub publish[tau_wars]"
-    exit -1
-fi
 
 
 git add .
@@ -60,6 +53,14 @@ git push origin
 if [ ! -z "$VERSION" ]; then
     git tag -f $VERSION
     git push  -f origin $VERSION
+fi
+
+
+
+flutter pub publish
+if [ $? -ne 0 ]; then
+    echo "Error: flutter pub publish[tau_wars]"
+    exit -1
 fi
 
 
