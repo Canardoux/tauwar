@@ -1,6 +1,6 @@
 name: tau_war
 description: "An Etau implemention for Android and iOS, using the tau_webkit plugin"
-version: 0.16.0
+version: 0.17.0
 homepage: https://tau.canardoux.xyz/etau-README.html
 repository: https://github.com/canardoux/tau_web
 
