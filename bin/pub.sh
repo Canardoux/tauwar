@@ -40,6 +40,9 @@ fi
 #fi
 cd ..
 
+
+dart doc .
+
 rm -rf _*.tgz 2>/dev/null
 
 
@@ -49,21 +52,18 @@ if [ $? -ne 0 ]; then
     exit -1
 fi
 
-read -p "Press enter to continue"
-
-
-dart doc .
-
-
 
 git add .
-git commit -m "Tauwars : Version $VERSION"
+git commit -m "Tauwar : Version $VERSION"
 git pull origin
 git push origin
 if [ ! -z "$VERSION" ]; then
     git tag -f $VERSION
     git push  -f origin $VERSION
 fi
+
+
+read -p "Press enter to continue"
 
 
 
