@@ -1,6 +1,6 @@
 name: tau_war
 description: "An Etau implemention for Android and iOS, using the tau_webkit plugin"
-version: 0.17.0
+version: 0.0.3
 homepage: https://tau.canardoux.xyz/etau-README.html
 repository: https://github.com/canardoux/tau_web
 
@@ -12,6 +12,10 @@ dependencies:
   flutter:
     sdk: flutter
   plugin_platform_interface: ^2.0.2
+
+  tau_webkit: # 0.0.3
+    path: ../tau_webkit # tau_webkit Dir
+
 
 dev_dependencies:
   ffi: ^2.1.3

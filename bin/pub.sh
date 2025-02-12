@@ -10,6 +10,15 @@ VERSION=$1
 VERSION_CODE=${VERSION#./}
 VERSION_CODE=${VERSION_CODE#+/}
 
+cd ../tau_webkit
+bin/pub.sh $VERSION
+if [ $? -ne 0 ]; then
+    echo "Error: analyze example/lib"
+    exit -1
+fi
+cd ../tau_war
+
+
 echo '************************* Pub tau_war ************************'
 bin/setver.sh $VERSION
 bin/reldev.sh REL

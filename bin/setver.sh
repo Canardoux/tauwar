@@ -20,7 +20,7 @@ VERSION_CODE=${VERSION_CODE//+/}
 
 gsed -i  "s/^\( *version: *\).*$/\1$VERSION/"                                           pubspec.yaml
 gsed -i  "s/^\( *version: *\).*$/\1$VERSION/"                                           example/pubspec.yaml
-gsed -i  "s/^\( *tau_war: *#* *\^*\).*$/\1$VERSION/"                                   example/pubspec.yaml
-gsed -i  "s/^\( *tau_war: *#* *\^*\).*$/\1$VERSION/"                                   ../etau/example/pubspec.yaml
+gsed -i  "s/^\( *tau_war: *#* *\^*\).*$/\1$VERSION/"                                    example/pubspec.yaml
+gsed -i  "s/^\( *tau_war: *#* *\^*\).*$/\1$VERSION/"                                    ../etau/example/pubspec.yaml
 gsed -i  "s/^\( *## \).*$/\1$VERSION/"                                                  CHANGELOG.md
 

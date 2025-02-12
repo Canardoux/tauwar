@@ -3,8 +3,8 @@
 if [ "_$1" = "_REL" ] ; then
   
 
-        gsed -i  "s/^ *tau_wars: *#* *\(.*\)$/  tau_wars: \1/"                                                                     example/pubspec.yaml
-        gsed -i  "s/^ *path: \.\.\/ # tau_wars Dir$/#    path: \.\.\/ # tau_wars Dir/"                                             example/pubspec.yaml
+        gsed -i  "s/^ *tau_war: *#* *\(.*\)$/  tau_wars \1/"                                                                     example/pubspec.yaml
+        gsed -i  "s/^ *path: \.\.\/ # tau_war Dir$/#    path: \.\.\/ # tau_war Dir/"                                             example/pubspec.yaml
 
 
         gsed -i  "s/^ *etau: *#* *\(.*\)$/  etau: \1/"                                                                             example/pubspec.yaml
@@ -22,8 +22,8 @@ if [ "_$1" = "_REL" ] ; then
 elif [ "_$1" = "_DEV" ]; then
  
 
-        gsed -i  "s/^ *tau_wars: *#* *\(.*\)$/  tau_wars: # \1/"                                                                  example/pubspec.yaml
-        gsed -i  "s/^# *path: \.\.\/ # tau_wars Dir$/    path: \.\.\/ # tau_wars Dir/"                                            example/pubspec.yaml
+        gsed -i  "s/^ *tau_war: *#* *\(.*\)$/  tau_war: # \1/"                                                                  example/pubspec.yaml
+        gsed -i  "s/^# *path: \.\.\/ # tau_war Dir$/    path: \.\.\/ # tau_war Dir/"                                            example/pubspec.yaml
 
 
         gsed -i  "s/^ *etau: *#* *\(.*\)$/  etau: # \1/"                                                                          example/pubspec.yaml

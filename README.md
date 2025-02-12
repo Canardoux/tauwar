@@ -1,92 +1,66 @@
-# tau_war
+<!--
+This README describes the package. If you publish this package to pub.dev,
+this README's contents appear on the landing page for your package.
 
-An Etau implemention for Android and iOS, using the tau_webkit plugin
+For information about how to write a good package README, see the guide for
+[writing package pages](https://dart.dev/tools/pub/writing-package-pages).
 
-## Getting Started
+For general information about developing packages, see the Dart guide for
+[creating packages](https://dart.dev/guides/libraries/create-packages)
+and the Flutter guide for
+[developing packages and plugins](https://flutter.dev/to/develop-packages).
+-->
 
-This project is a starting point for a Flutter
-[FFI plugin](https://flutter.dev/to/ffi-package),
-a specialized package that includes native code directly invoked with Dart FFI.
+# Tauwar
 
-## Project structure
+`Tauwar` is an [Etau](https://pub.dev/packages/etau) implementation for Flutter on mobiles.
 
-This template uses the following structure:
+[Etau](https://pub.dev/packages/etau) is the interface and this is what see the App.
+So, there are not many things to say about `Tauwar` because this is just an implementation.
+The only verb used by the App is `tau()`, which gives the implementation.
 
-* `src`: Contains the native source code, and a CmakeFile.txt file for building
-  that source code into a dynamic library.
+You can see all the [Etau project documentation](https://tau.canardoux.xyz/etau-README.html) here.
 
-* `lib`: Contains the Dart code that defines the API of the plugin, and which
-  calls into the native code using `dart:ffi`.
+Example
+```dart
+import 'package:etau/etau.dart';
+import 'package:tau_war/tau_war.dart';
 
-* platform folders (`android`, `ios`, `windows`, etc.): Contains the build files
-  for building and bundling the native code library with the platform application.
+  @override
+  void initState() 
+  {
+        super.initState();
+        tau().init().then 
+        ((e){
+                audioCtx = tau().newAudioContext();
+        });
+  }
 
-## Building and bundling native code
+  ...
+        // Then all the code depends only on the interface (`etau`)
+        dest = audioCtx.destination;
+        source = audioCtx.createBufferSource();
+        source!.buffer = audioBuffer;
+        pannerNode = audioCtx.createStereoPanner();
+        pannerNode!.pan.value = pannerValue;
+        source!.connect(pannerNode!).connect(dest!);
 
-The `pubspec.yaml` specifies FFI plugins as follows:
-
-```yaml
-  plugin:
-    platforms:
-      some_platform:
-        ffiPlugin: true
 ```
 
-This configuration invokes the native build for the various target platforms
-and bundles the binaries in Flutter applications using these FFI plugins.
+if your App needs to support at the same time Fliutter Web And Flutter on mobiles:
+```dart
+import 'package:etau/etau.dart';
+import 'package:etau/dummy.dart'
+  if (dart.library.js_interop) 'package:tau_web/tau_web.dart'
+  if (dart.library.io) 'package:tau_war/tau_war.dart';
 
-This can be combined with dartPluginClass, such as when FFI is used for the
-implementation of one platform in a federated plugin:
-
-```yaml
-  plugin:
-    implements: some_other_plugin
-    platforms:
-      some_platform:
-        dartPluginClass: SomeClass
-        ffiPlugin: true
+  @override
+  void initState() 
+  {
+        super.initState();
+        tau().init().then 
+        ((e){
+                audioCtx = tau().newAudioContext();
+        });
+  }
 ```
-
-A plugin can have both FFI and method channels:
-
-```yaml
-  plugin:
-    platforms:
-      some_platform:
-        pluginClass: SomeName
-        ffiPlugin: true
-```
-
-The native build systems that are invoked by FFI (and method channel) plugins are:
-
-* For Android: Gradle, which invokes the Android NDK for native builds.
-  * See the documentation in android/build.gradle.
-* For iOS and MacOS: Xcode, via CocoaPods.
-  * See the documentation in ios/tau_war.podspec.
-  * See the documentation in macos/tau_war.podspec.
-* For Linux and Windows: CMake.
-  * See the documentation in linux/CMakeLists.txt.
-  * See the documentation in windows/CMakeLists.txt.
-
-## Binding to native code
-
-To use the native code, bindings in Dart are needed.
-To avoid writing these by hand, they are generated from the header file
-(`src/tau_war.h`) by `package:ffigen`.
-Regenerate the bindings by running `dart run ffigen --config ffigen.yaml`.
-
-## Invoking native code
-
-Very short-running native functions can be directly invoked from any isolate.
-For example, see `sum` in `lib/tau_war.dart`.
-
-Longer-running functions should be invoked on a helper isolate to avoid
-dropping frames in Flutter applications.
-For example, see `sumAsync` in `lib/tau_war.dart`.
-
-## Flutter help
-
-For help getting started with Flutter, view our
-[online documentation](https://docs.flutter.dev), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
-
