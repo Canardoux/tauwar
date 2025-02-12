@@ -20,6 +20,8 @@ cd ../tau_war
 
 
 echo '************************* Pub tau_war ************************'
+
+
 bin/setver.sh $VERSION
 bin/reldev.sh REL
 
@@ -78,4 +80,4 @@ read -p "Press enter to continue"
 
 
 
-echo 'E.O.J'
+echo 'E.O.J for pub tau_war'
