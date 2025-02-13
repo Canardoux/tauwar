@@ -1,4 +1,4 @@
-## 0.17.6
+## 0.0.4
 
-- ## The [CHANGELOG file is here](https://tau.canardoux.xyz/etau_CHANGELOG.html)
+- ## The [CHANGELOG file is here](https://tau.canardoux.xyz/etau-CHANGELOG.html)
 
