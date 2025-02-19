@@ -18,8 +18,8 @@ VERSION_CODE=${VERSION_CODE#+/}
 #fi
 #cd ../tau_war
 
-cp -v ../tauwar-doc/index.md README.md
-gsed -i '1,6d' README.md
+#cp -v ../tauwar-doc/index.md README.md
+#gsed -i '1,6d' README.md
 
 echo '************************* Pub tau_war ************************'
 

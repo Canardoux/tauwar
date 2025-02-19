@@ -1,37 +1,66 @@
-## Documentation
+<!--
+This README describes the package. If you publish this package to pub.dev,
+this README's contents appear on the landing page for your package.
 
-![pub version](https://img.shields.io/pub/v/flutter_sound.svg?style=flat-square)
+For information about how to write a good package README, see the guide for
+[writing package pages](https://dart.dev/tools/pub/writing-package-pages).
 
-- ## `Tau` user : your doc [is here](https://tau.canardoux.xyz/etau-README.html)
-- ## The CHANGELOG [is here](https://tau.canardoux.xyz/etau-CHANGELOG.html)
+For general information about developing packages, see the Dart guide for
+[creating packages](https://dart.dev/guides/libraries/create-packages)
+and the Flutter guide for
+[developing packages and plugins](https://flutter.dev/to/develop-packages).
+-->
 
-## Taudio stands for Ukraine
+# Tauwar
 
-![PeaceForUkraine](https://tau-ver.canardoux.xyz/images/2-year-old-irish-girl-ukrainian.jpg)
-Peace for Ukraine
+`Tauwar` is an [Etau](https://pub.dev/packages/etau) implementation for Flutter on mobiles.
 
-![PrayForUkraine](https://tau-ver.canardoux.xyz/images/banner.png)
-Pray for Ukraine
+[Etau](https://pub.dev/packages/etau) is the interface and this is what see the App.
+So, there are not many things to say about `Tauwar` because this is just an implementation.
+The only verb used by the App is `tau()`, which gives the implementation.
 
-## `Taudio` as a τ Project
+You can see all the [Etau project documentation](https://tau.canardoux.xyz/etau-README.html) here.
 
-`Taudio` is both :
+Example
+```dart
+import 'package:etau/etau.dart';
+import 'package:tau_war/tau_war.dart';
 
-- A wrapper above [Etau](https://pub.dev/packages/etau).
-- [Flutter Sound v10.0](https://pub.dev/packages/flutter_sound).
+  @override
+  void initState() 
+  {
+        super.initState();
+        tau().init().then 
+        ((e){
+                audioCtx = tau().newAudioContext();
+        });
+  }
 
-The current Flutter Sound version is 9.x. `Taudio` is a new name for Flutter Sound 10.0. Taudio is actually in a developement state. It is an Alpha version. Even not a Beta version. There are many things to do before you can use it. Specially:
-- A documentation (TODO)
-- A support of the three main platforms:
-   - Web (TOODO)
-   - iOS (TODO)
-   - Android (TODO)
+  ...
+        // Then all the code depends only on the interface (`etau`)
+        dest = audioCtx.destination;
+        source = audioCtx.createBufferSource();
+        source!.buffer = audioBuffer;
+        pannerNode = audioCtx.createStereoPanner();
+        pannerNode!.pan.value = pannerValue;
+        source!.connect(pannerNode!).connect(dest!);
 
-`Taudio` is (will be) released under the Gnu Public Licence v3 (GPL v3). This mean that if you don't want, cannot or maynot release your App under a GPL License, you must stuck with Flutter Sound 9.x. This is not a big deal: Flutter Sound v 9.x will be maintain for a forseable future.
+```
 
-`Taudio` is a complete rewrite of Flutter Sound 9.x. It keeps compatibility with the Flutter Sound 9.x API but adds a new wrapper above [Etau](https://pub.dev/packages/etau).
+if your App needs to support at the same time Fliutter Web And Flutter on mobiles:
+```dart
+import 'package:etau/etau.dart';
+import 'package:etau/dummy.dart'
+  if (dart.library.js_interop) 'package:tau_web/tau_web.dart'
+  if (dart.library.io) 'package:tau_war/tau_war.dart';
 
-This project is actually being developed.
-
-Actually this is only a place holder.
-
+  @override
+  void initState() 
+  {
+        super.initState();
+        tau().init().then 
+        ((e){
+                audioCtx = tau().newAudioContext();
+        });
+  }
+```
