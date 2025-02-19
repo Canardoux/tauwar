@@ -10,14 +10,16 @@ VERSION=$1
 VERSION_CODE=${VERSION#./}
 VERSION_CODE=${VERSION_CODE#+/}
 
-cd ../tau_webkit
-bin/pub.sh $VERSION
-if [ $? -ne 0 ]; then
-    echo "Error: analyze example/lib"
-    exit -1
-fi
-cd ../tau_war
+#cd ../tau_webkit
+#bin/pub.sh $VERSION
+#if [ $? -ne 0 ]; then
+#    echo "Error: analyze example/lib"
+#    exit -1
+#fi
+#cd ../tau_war
 
+cp -v ../tauwar-doc/index.md README.md
+gsed -i '1,6d' README.md
 
 echo '************************* Pub tau_war ************************'
 
