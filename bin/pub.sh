@@ -77,7 +77,7 @@ if [ $? -ne 0 ]; then
 fi
 
 
-#read -p "Press enter to continue"
+read -p "Press enter to continue"
 
 
 
