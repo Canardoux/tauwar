@@ -1,6 +1,6 @@
 name: tau_war
 description: "An Etau implemention for Android and iOS, using the tau_webkit plugin. Member of the `Tau` family. Europe Stands With Ukraine. Pray for Ukraine."
-version: 0.17.9
+version: 0.17.11
 homepage: https://tau-ver.canardoux.xyz/etau-README.html
 repository: https://github.com/canardoux/tau_war
 
