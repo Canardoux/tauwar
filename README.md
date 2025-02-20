@@ -14,6 +14,17 @@ and the Flutter guide for
 [developing packages and plugins](https://flutter.dev/to/develop-packages).
 -->
 
+- ## Etau user : your doc [is here](https://etau.canardoux.xyz/)
+
+## Etau stands for Ukraine!
+
+![PeaceForUkraine](https://etau.canardoux.xyz/images/2-year-old-irish-girl-ukrainian.jpg)
+Peace for Ukraine
+
+![PrayForUkraine](https://etau.canardoux.xyz/images/banner.png)
+Pray for Ukraine
+
+
 # Tauwar
 
 `Tauwar` is an [Etau](https://pub.dev/packages/etau) implementation for Flutter on mobiles.
